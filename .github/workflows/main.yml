@@ -8,24 +8,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Eng yangi v4 versiya
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # Eng yangi v5 versiya
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
           pip install flet deep-translator
-          
+
       - name: Build APK
         run: |
-          # Fayl nomingiz tarjimon3.py ekanligini hisobga oldim
+          # Sizning faylingiz nomi tarjimon3.py
           flet build apk tarjimon3.py
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4 # Eng yangi v4 versiya
+        uses: actions/upload-artifact@v4
         with:
-          name: mening-tarjimonim-v1
+          name: mening-tarjimon-ilovam
           path: build/apk/*.apk
