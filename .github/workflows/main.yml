@@ -8,7 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -19,12 +20,12 @@ jobs:
         run: |
           pip install flet deep-translator
 
-      - name: Build APK
+      - name: Build Android APK
         run: |
-          # Sizning faylingiz nomi tarjimon3.py
+          # Sizning faylingiz nomi tarjimon3.py ekanligini kiritdim
           flet build apk tarjimon3.py
 
-      - name: Upload APK
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: mening-tarjimon-ilovam
